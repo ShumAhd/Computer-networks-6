@@ -8,3 +8,7 @@
 
 Скриншорт команды netstat
 ![netstat](netstat.jpg)
+
+Перехват трафика
+![tcp](tcp.jpg)
+
