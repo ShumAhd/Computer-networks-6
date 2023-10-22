@@ -12,23 +12,26 @@ client.connect(('127.0.0.1', 55555))
 def receive():
     while True:
         try:
-            # Receive Message From Server
-            # If 'NICK' Send Nickname
             message = client.recv(1024).decode('ascii')
             if message == 'NICK':
                 client.send(nickname.encode('ascii'))
             else:
                 print(message)
         except:
-            # Close Connection When Error
-            print("An error occured!")
+            print("An error occurred!")
             client.close()
             break
 
+# Sending commands and messages
 def write():
     while True:
-        message = '{}: {}'.format(nickname, input(''))
-        client.send(message.encode('ascii'))
+        message = input('')
+        if message.startswith('/block'):
+            client.send(message.encode('ascii'))
+        elif message.startswith('/unblock'):
+            client.send(message.encode('ascii'))
+        else:
+            client.send('{}: {}'.format(nickname, message).encode('ascii'))
 
 # Starting Threads For Listening And Writing
 receive_thread = threading.Thread(target=receive)
