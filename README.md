@@ -5,3 +5,6 @@
 
 Скриншот работы чата
 ![scrinchat.jpg](scrinchat.jpg)
+
+Скриншорт команды netstat
+![netstat](netstat.jpg)
